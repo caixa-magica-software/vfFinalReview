@@ -81,6 +81,10 @@ function persistMessages(args, cbk) {
     });
 }
 module.exports = function(app) {
-    router.get('/listener', main);
+    try {
+        main();
+    } catch (err) {
+        console.log(err);
+    }
     return router;
 }
