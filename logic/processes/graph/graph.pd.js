@@ -18,8 +18,8 @@ function queryRecords(args, cbk) {
     const map = (function map(inputs) {
         return {
             authorization: 'Basic cG9zdGdyZXM6dmZvcw==',
-            databaseName: 'vfvibrationdb1',
-            tableName: 'vfvalues',
+            databaseName: 'vffinalreviewdb',
+            tableName: 'vfsensorvalues',
             limit: 30,
             order_by: ['date DESC']
         };
@@ -77,6 +77,7 @@ function queryRecords(args, cbk) {
 }
 function normalizeRecords(args, cbk) {
     function script(inputs, next) {
+        console.log(inputs);
         next(null, {
             sensor_id: 'sensor1',
             sensor_name: 'This is the sensor name',
